@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix</title>
+    <link rel="stylesheet" href="WL.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="branding">
+      <h1>NETFLIX</h1>
+    </div>
+
+    <div class="background">
+      <div class="main-container" id="mainContainer">
+        <div class="main bg-gradient">
+          <h2 class="category-heading">Animated Movies</h2>
+          <div class="card" onclick="toggleCard(this)">
+            <a href="https://hianime.to/watch/your-name-10">
+              <img src="YourName.jfif" alt="Movie 1" />
+              <h3>Your Name</h3>
+              <p class="excerpt">
+                Two teenagers share a profound, magical connection upon
+                discovering they are swapping bodies. Things manage to become
+                even more complicated when the boy and girl decide to meet in
+                person.
+              </p>
+              <p class="full-text hidden">
+                Two teenagers share a profound, magical connection upon
+                discovering they are swapping bodies. Things manage to become
+                even more complicated when the boy and girl decide to meet in
+                person.
+              </p>
+            </a>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <a href="https://hianime.to/watch/weathering-with-you-111">
+              <img src="WWY.jfif" alt="Movie 2" />
+              <h3>Weathering with you</h3>
+              <p class="excerpt">
+                Set during a period of exceptionally rainy weather, high-school
+                boy Hodaka Morishima runs away from his troubled rural home to
+                Tokyo and befriends an orphan girl who can manipulate the
+                weather.
+              </p>
+              <p class="full-text hidden">
+                Set during a period of exceptionally rainy weather, high-school
+                boy Hodaka Morishima runs away from his troubled rural home to
+                Tokyo and befriends an orphan girl who can manipulate the
+                weather.
+              </p>
+            </a>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <a
+              href="https://hianime.to/watch/josee-the-tiger-and-the-fish-15750"
+            >
+              <img src="JTF.jfif" alt="Movie 3" />
+              <h3>Josee, the Tiger and the Fish</h3>
+              <p class="excerpt">
+                After befriending a marine biology student, a sarcastic artist
+                living with paraplegia begins to experience the world beyond her
+                home.
+              </p>
+              <p class="full-text hidden">
+                After befriending a marine biology student, a sarcastic artist
+                living with paraplegia begins to experience the world beyond her
+                home.
+              </p>
+            </a>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <a href="https://hianime.to/watch/i-want-to-eat-your-pancreas-70">
+              <img src="Pancreas.jfif" alt="Movie 4" />
+              <h3>I Want to Eat Your Pancreas</h3>
+              <p class="excerpt">
+                A high school student discovers one of his classmates, Sakura
+                Yamauchi, is suffering from a terminal illness. This secret
+                brings the two together, as she lives out her final moments.
+              </p>
+              <p class="full-text hidden">
+                A high school student discovers one of his classmates, Sakura
+                Yamauchi, is suffering from a terminal illness. This secret
+                brings the two together, as she lives out her final moments.
+              </p>
+            </a>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <a href="https://hianime.to/watch/child-of-kamiari-month-15756">
+              <img src="COKM.jpg" alt="Movie 5" />
+              <h3>Child of Kamiari Month</h3>
+              <p class="excerpt">
+                Kanna loses her love of running after her mother passes away.
+                Due to the workings of the gods, she heads to Izumo City.
+              </p>
+              <p class="full-text hidden">
+                Kanna loses her love of running after her mother passes away.
+                Due to the workings of the gods, she heads to Izumo City.
+              </p>
+            </a>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <a href="https://hianime.to/watch/5-centimeters-per-second-859">
+              <img src="5CPS.jpg" alt="Movie 6" />
+              <h3>5 Centimeters Per Second</h3>
+              <p class="excerpt">
+                Told in three interconnected segments, Takaki tells the story of
+                his life as cruel winters, cold technology, and finally, adult
+                obligations and responsibility converge to test the delicate
+                petals of love.
+              </p>
+              <p class="full-text hidden">
+                Told in three interconnected segments, Takaki tells the story of
+                his life as cruel winters, cold technology, and finally, adult
+                obligations and responsibility converge to test the delicate
+                petals of love.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var container = document.getElementById("mainContainer");
+
+        container.addEventListener("wheel", function (event) {
+          event.preventDefault();
+          container.scrollLeft += event.deltaY;
+        });
+
+        function toggleCard(card) {
+          card.classList.toggle("expanded");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="Sign-in.css">
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop muted>
+            <source src="bg.mp4" type="video/mp4">
+        </video>
+        <div id="text-overlay">
+            <div class="container">
+                <img src="logo.jpg" alt="Logo" class="logo" />
+                <h2>Sign In</h2>
+                <form id="Sign-in-Form" onsubmit="validateForm(event)">
+                    <input type="email" placeholder="Email" id="email" />
+                    <input type="password" placeholder="Password" id="password" />
+                    <button type="submit">Sign In</button>
+                </form>
+                <p>Don't have an account? <a href="Sign-up.html">Sign Up</a></p>
+                <p id="errorMessage" class="error-message" style="color: red;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            var form = document.getElementById('Sign-in-Form');
+            var email = form.elements['email'].value;
+            var password = form.elements['password'].value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            if (!email || !password) {
+                errorMessage.textContent = 'All fields are required';
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                errorMessage.textContent = 'Invalid email address';
+                return;
+            }
+
+            if (password.length < 8) {
+                errorMessage.textContent = 'Password must be at least 8 characters long';
+                return;
+            }
+
+            if (!isValidPassword(password)) {
+                errorMessage.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
+                return;
+            }
+
+            form.submit();
+            alert("Signed in Succesfully")
+            window.location.href = "Subs.html";
+        }
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPassword(password) {
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_=+])[A-Za-z\d!@#$%^&*()-_=+]{8,}$/;
+            return passwordRegex.test(password);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="Subs.css">
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop muted>
+            <source src="bg.mp4" type="video/mp4">
+        </video>
+        <div id="text-overlay">
+            <div class="container">
+                <h2>Choose a Subscription Plan</h2>
+                <div class="box">
+                    <div class="plan">
+                        <h3>Basic</h3>
+                        <p>Standard Definition</p>
+                        <p>Rs250/month</p>
+                        <a href="WL.html"><button onclick="Basic()">Select</button></a> 
+                    </div>
+                    <div class="plan">
+                        <h3>Standard</h3>
+                        <p>High Definition</p>
+                        <p>Rs750/month</p>
+                        <a href="WL.html"><button onclick="Standard()">Select</button></a> <!-- Link to homepage -->
+                    </div>
+                    <div class="plan">
+                        <h3>Premium</h3>
+                        <p>Ultra High Definition</p>
+                        <p>Rs1250/month</p>
+                        <a href="WL.html"><button onclick="Premium()">Select</button></a> <!-- Link to homepage -->
+                    </div>
+                </div>
+                <p>Already have an account? <a href="Sign-in.html">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function Basic() {
+            alert("You have selected Basic Plan!")
+        }
+        function Standard() {
+            alert("You have selected Standard Plan!")
+        }
+        function Premium() {
+            alert("You have selected Premium Plan!")
+        }
+    </script>
+</body>
+</html>

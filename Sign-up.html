@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="Sign-up.css">
+</head>
+
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop muted>
+            <source src="bg.mp4" type="video/mp4">
+        </video>
+        <div id="text-overlay">
+            <div class="container">
+                <img src="logo.jpg" alt="Logo" class="logo" />
+                <h2>Sign Up</h2>
+                <form id="registrationForm" onsubmit="validateForm(event)">
+                    <input type="text" placeholder="Name" id="name" />
+                    <input type="email" placeholder="Email" id="email" />
+                    <input type="password" id="password" placeholder="Password" />
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" />
+                    <input type="tel" placeholder="Phone Number" id="number" />
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="Sign-in.html">Sign In</a></p>
+                <p id="errorMessage" class="error-message" style="color: red;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            var form = document.getElementById('registrationForm');
+            var username = form.elements['name'].value;
+            var email = form.elements['email'].value;
+            var password = form.elements['password'].value;
+            var c_password = form.elements['confirm-password'].value;
+            var number = form.elements['number'].value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            if (!username || !email || !password || !c_password) {
+                errorMessage.textContent = 'All fields are required';
+                return;
+            }
+
+            if (!isValidName(username)) {
+                errorMessage.textContent = 'Invalid name format';
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                errorMessage.textContent = 'Invalid email address';
+                return;
+            }
+
+            if (!isValidNumber(number)) {
+                errorMessage.textContent = 'Invalid mobile number';
+                return;
+            }
+
+            if (!isValidPassword(password)) {
+                errorMessage.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+                return;
+            }
+
+            if (password !== c_password) {
+                errorMessage.textContent = "Passwords don't match";
+                return;
+            }
+
+            form.submit();
+            window.location.href = "Subs.html";
+            alert("Account has been Created.")
+        }
+
+        function isValidName(username) {
+            const regex = /^[a-zA-Z\-\'\s]+$/;
+            return regex.test(username);
+        }
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidNumber(number) {
+            const regex = /^[6-9]\d{9}$/;
+            return regex.test(number);
+        }
+
+        function isValidPassword(password) {
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            return regex.test(password);
+        }
+
+    </script>
+</body>
+
+</html>
